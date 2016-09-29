@@ -17,9 +17,23 @@ const usersSchema =  {
   password: {type: 'string', maxlength: 254, nullable: false},
 };
 
-migrate.createTable(knex, 'users', usersSchema, true);
+migrate.createTable(knex, 'users', usersSchema, true)
+.then(function () {
+  // success
+})
+.catch(function (error) {
+  // error
+});
 
 ```
+
+### API
+This module contains only one method `.createTable` which accepts 4 parameters:
+
+  1. `knex` {Objetc} - A knex instance object (required)
+  2. `tablename` {String} - name of the table to me created (required)
+  3. `schema` {Object} - A JSON or JavaScript object schema (required)
+  4. `timestamps` {Boolean} - if true adds `created_at` and `updated_at` columns (optional) - defaults to false.
 
 
 License
