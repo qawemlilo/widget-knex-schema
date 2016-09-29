@@ -27,8 +27,9 @@ migrate.createTable(knex, 'users', usersSchema, true)
 
 ```
 
-### Complete Schema Example
-```
+### Schema Example
+
+```javascript
 const records = {
   id: {type: 'increments', nullable: false, primary: true},
   test_reference_id: {type: 'integer', nullable: false, unsigned: true, references: 'users.id'},
@@ -50,6 +51,7 @@ const records = {
 ```
 
 ### API
+
 This module contains only one method `.createTable` which accepts 4 parameters:
 
   1. `knex` {Objetc} - A knex instance object (required)
@@ -57,6 +59,12 @@ This module contains only one method `.createTable` which accepts 4 parameters:
   3. `schema` {Object} - A JSON or JavaScript object schema (required)
   4. `timestamps` {Boolean} - if true adds `created_at` and `updated_at` columns (optional) - defaults to false.
 
+
+### Testing
+
+```
+npm test
+```
 
 License
 -------
