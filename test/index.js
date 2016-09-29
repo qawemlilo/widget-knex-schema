@@ -3,7 +3,7 @@
 const knex = require('knex')({
   client: 'sqlite3',
   connection: {
-    filename: './test.sqlite'
+    filename: './records.sqlite'
   },
   useNullAsDefault: true
 });
@@ -18,12 +18,23 @@ describe('Run migrations', function () {
   let App;
 
   before(function (done) {
-    widgetKnexSchema.createTable(knex, 'users', usersSchema, true)
+    widgetKnexSchema.createTable(knex, 'records', usersSchema, true)
     .then(function () {
-      return knex('users').insert({
-        name: 'admin',
-        email: 'test@test.com',
-        password: 'password'
+      return knex('records').insert({
+        test_string: 'This is a st',
+        test_medium_text: 'This is a mediumtext field',
+        test_longtext_text: 'This is a longtext field',
+        test_float: 123456.78,
+        test_decimal: 123456.78,
+        test_binary: 10100011011001010101001011011,
+        test_enum: 'y',
+        test_date: new Date().toISOString().slice(0, 10),
+        test_dateTime: new Date().toISOString().slice(0, 19).replace('T', ' '),
+        test_time: new Date().toISOString().slice(11, 19),
+        test_timestamp: new Date().toISOString().slice(0, 19).replace('T', ' '),
+        test_json: JSON.stringify(['a','b']),
+        test_jsonb: JSON.stringify(['c','d']),
+        test_uuid: 'uuid_' + Date.now()
       });
     })
     .then(function () {
@@ -34,16 +45,24 @@ describe('Run migrations', function () {
     });
   });
 
-  describe('Select created user', function() {
-    it('should return created user', function(done) {
-      knex('users').where({email: 'test@test.com'}).select('*')
-      .then(function (users) {
-        let user = users[0];
+  describe('Select created records', function() {
+    it('should return created records', function(done) {
+      knex.select().table('records')
+      .then(function (records) {
+        let record = records[0];
 
-        user.email.should.be.eql('test@test.com');
-        user.name.should.be.eql('admin');
-        user.created_at.should.be.a.Date;
-        user.updated_at.should.be.a.Date;
+        record.test_string.should.be.eql('This is a st'),
+        record.test_medium_text.should.be.eql('This is a mediumtext field'),
+        record.test_longtext_text.should.be.eql('This is a longtext field'),
+        record.test_float.should.be.eql(123456.78),
+        record.test_decimal.should.be.eql(123456.78),
+        record.test_enum.should.be.eql('y'),
+        record.test_date.should.be.a.Date,
+        record.test_dateTime.should.be.a.Date,
+        record.test_time.should.be.a.Date,
+        record.test_timestamp.should.be.a.Date,
+        JSON.parse(record.test_json).length.should.be.eql(2),
+        JSON.parse(record.test_jsonb).length.should.be.eql(2)
 
         done();
       })
@@ -52,7 +71,7 @@ describe('Run migrations', function () {
   });
 
   after(function (done) {
-    require('fs').unlinkSync('./test.sqlite');
+    require('fs').unlinkSync('./records.sqlite');
     console.log(' > Database reset complete');
     done();
   });

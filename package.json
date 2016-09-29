@@ -1,6 +1,6 @@
 {
   "name": "widget-knex-schema",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Knex generated tables using JSON/Object schemas",
   "main": "index.js",
   "scripts": {
