@@ -1,10 +1,14 @@
 {
   "name": "widget-knex-schema",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Knex generated tables using JSON/Object schemas",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/qawemlilo/widget-knex-schema.git"
   },
   "keywords": [
     "knex",
@@ -13,14 +17,18 @@
   ],
   "author": "Qawelesizwe Mlilo <qawemlilo@gmail.com>",
   "license": "MIT",
-  "engines": {
-    "node": "4.5.x",
-    "npm": "3.10.x"
+  "bugs": {
+    "url": "https://github.com/qawemlilo/widget-knex-schema/issues"
   },
+  "homepage": "https://github.com/qawemlilo/widget-knex-schema#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "knex": "^0.12.2",
     "mocha": "^3.1.0",
     "sqlite3": "^3.1.4"
+  },
+  "engines": {
+    "node": "4.5.x",
+    "npm": "3.10.x"
   }
 }
