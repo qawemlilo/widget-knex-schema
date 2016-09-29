@@ -1,7 +1,7 @@
 {
   "name": "widget-knex-schema",
   "version": "1.0.0",
-  "description": "File schemas for knex migrations",
+  "description": "Knex generated tables using JSON/Object schemas",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test"
