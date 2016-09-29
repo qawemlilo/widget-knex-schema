@@ -1,0 +1,26 @@
+{
+  "name": "widget-knex-schema",
+  "version": "1.0.0",
+  "description": "File schemas for knex migrations",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test"
+  },
+  "keywords": [
+    "knex",
+    "schema",
+    "migrations"
+  ],
+  "author": "Qawelesizwe Mlilo <qawemlilo@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "4.5.x",
+    "npm": "3.10.x"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "knex": "^0.12.2",
+    "mocha": "^3.1.0",
+    "sqlite3": "^3.1.4"
+  }
+}
