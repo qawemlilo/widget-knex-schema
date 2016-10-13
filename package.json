@@ -1,6 +1,6 @@
 {
   "name": "widget-knex-schema",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Knex generated tables using JSON/Object schemas",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,6 @@
     "sqlite3": "^3.1.4"
   },
   "engines": {
-    "node": "4.5.x",
-    "npm": "3.10.x"
+    "node": ">= 14.0"
   }
 }

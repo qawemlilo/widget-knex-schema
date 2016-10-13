@@ -7,6 +7,7 @@ module.exports = {
   test_longtext_text: {type: 'text', fieldtype: 'longtext', nullable: false},
   test_float: {type: 'float', precision: 8, scale: 2, nullable: false},
   test_decimal: {type: 'decimal', precision: 8, scale: 2, nullable: false},
+  test_bool: {type: 'boolean', nullable: false, defaultTo: true},
   test_binary: {type: 'binary', maxlength: 200, nullable: false},
   test_enum: {type: 'enum', values: ['y', 'n']},
   test_date: {type: 'date', nullable: false},
