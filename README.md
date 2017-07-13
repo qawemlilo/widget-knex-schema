@@ -1,4 +1,6 @@
 # Widget Knex Schema
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/qawemlilo/widget-knex-schema.svg)](https://greenkeeper.io/)
 > Knex generated tables using JSON/Object schemas
 
 
